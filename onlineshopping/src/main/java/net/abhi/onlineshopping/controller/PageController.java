@@ -10,8 +10,23 @@ public class PageController {
 	@RequestMapping(value={"/","/home","/index"})
 	public ModelAndView index(){
 		ModelAndView model=new ModelAndView("page");
-		model.addObject("greeting","Welcome to spring mvc Mr. Abhishek" );
+		model.addObject("title","Home");
+		model.addObject("userClickHome",true);
+		return model;		
+	}
+	@RequestMapping(value="/about")
+	public ModelAndView about(){
+		ModelAndView model=new ModelAndView("page");
+		model.addObject("title","About Us");
+		model.addObject("userClickAbout",true);
 		return model;		
 	}
 		
+	@RequestMapping(value="/contact")
+	public ModelAndView contact(){
+		ModelAndView model=new ModelAndView("page");
+		model.addObject("title","Contact Us");
+		model.addObject("userClickContact",true);
+		return model;		
+	}
 }

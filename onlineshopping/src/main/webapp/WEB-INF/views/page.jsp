@@ -8,39 +8,28 @@
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
-
-<title>Online Shopping - ${title}</title>
-<script>
+  <title>Online Shopping-${title}</title>
+  <script>
 	window.menu = '${title}';
 </script>
-
-<!-- Bootstrap core CSS -->
-<link href="${css}/bootstrap.min.css" rel="stylesheet">
-
-<!-- Bootstrap Litera Theme -->
-<link href="${css}/bootstrap-litera-theme.css" rel="stylesheet">
-
-<!-- Custom styles for this template -->
-<link href="${css}/myapp.css" rel="stylesheet">
-
-</head>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="${css}/bootstrap.min.css" rel="stylesheet" >
+  <script src="${js}/jquery.js"></script>
+  <link href="${css}/myapp.css" rel="stylesheet">
+  </head>
 <body>
-	<div class="wrapper">
-
-		<!-- Navigation -->
-		<%@include file="./shared/navbar.jsp"%>
-
-		<!-- Page Content -->
-		<div class="content">
+<!-- Side Navbar-->
+<div id="mySidenav" class="sidenav">
+<%@include file="./shared/sidenav.jsp" %>
+</div>
+<!--Navbar  -->
+<div class="wrapper">
+<%@include file="./shared/navbar.jsp"%>
+</div>
+<!--Page Content-->
+<div class="content">
 			<!--Loading the home content  -->
 			<c:if test="${userClickHome == true}">
 				<%@include file="home.jsp"%>
@@ -53,16 +42,12 @@
 			<c:if test="${userClickAbout == true}">
 				<%@include file="about.jsp"%>
 			</c:if>
+			<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
+				<%@include file="listProducts.jsp"%>
+			</c:if>
 		</div>
-		<!-- Footer Comes Here-->
-		<%@include file="./shared/footer.jsp"%>
-
-		<!-- Bootstrap core JavaScript -->
-		<script src="${js}/jquery-3.3.1.min.js"></script>
-		<script src="${js}/bootstrap.bundle.min.js"></script>
-		<!--Self Coded JavaScript  -->
-		<script src="${js}/myapp.js"></script>
-	</div>
+		
+<script src="${js}/bootstrap.min.js"></script>
+<script src="${js }/myapp.js"></script>
 </body>
-
 </html>

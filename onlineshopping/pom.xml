@@ -14,11 +14,12 @@
   </properties>
   <dependencies>
   
-<!-- <dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring-context</artifactId>
-    <version>${springcontext.version}</version>
-</dependency>  -->
+<!-- Linking Backend Project -->
+<dependency>
+<groupId>net.abhi</groupId>
+  <artifactId>backendshopping</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+</dependency>
   
     <dependency>
       <groupId>junit</groupId>

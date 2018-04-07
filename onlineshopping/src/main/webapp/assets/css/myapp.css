@@ -2,7 +2,7 @@ html{
 	height:100%;
 }
 body {
-  padding-top: 10px;
+  padding-top:0px;
   height:100%;
 }
 .sidenav {
@@ -194,5 +194,9 @@ body {
 
 .card-deck .card {
   margin-bottom: 15px;
+}
+.dataTableImg{
+	width:100px;
+	hieght:100px;
 }
 

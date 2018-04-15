@@ -24,11 +24,6 @@ public class CategoryDAOImpl implements CategoryDAO {
 		String selectActiveCategory="FROM Category WHERE active=:active";
 		Query query=sessionFactory.getCurrentSession().createQuery(selectActiveCategory);
 		query.setParameter("active",true);
-				
-		
-		
-		
-		
 		return query.getResultList();
 }
 /*
@@ -40,26 +35,20 @@ public class CategoryDAOImpl implements CategoryDAO {
 	}
 
 	@Override
-	
 	public boolean add(Category category) {
 		
 		try{
 			//add the category to the database table
-			sessionFactory.getCurrentSession().persist(category);;
-			
-			
+			sessionFactory
+			.getCurrentSession()
+			.persist(category);
 			return true;
-		}catch(Exception e){
-			
-			e.printStackTrace();
-			return false;	
 		}
-		
-		
-		
-		
-		
-		
+		catch(Exception e){
+			e.printStackTrace();
+				
+		}
+		return false;
 	}
 	/*
 	 * Updating a single category

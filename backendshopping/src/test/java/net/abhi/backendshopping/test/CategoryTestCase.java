@@ -63,28 +63,17 @@ public class CategoryTestCase {
 	public void testCRUDCategory() {
 		//add operation
 		category=new Category();
-		category.setName("Laptop");
-		category.setDescription("This is some description about Laptop");
+		category.setName("HeadPhones");
+		category.setDescription("This is some description about HeadPhones");
 		category.setImageURL("CAT_3.png");
 		assertEquals("SuccesFully added the category inside the table",true,categoryDAO.add(category));
 		
-		category=new Category();
-		category.setName("Television");
-		category.setDescription("This is some description about Television");
-		category.setImageURL("CAT_4.png");
-		assertEquals("SuccesFully added the category inside the table",true,categoryDAO.add(category));
-	
-		//fetching and updating the category
-		category=categoryDAO.get(2);
-		category.setName("Tv");
-		assertEquals("SuccesFully updated the category in the table",true,categoryDAO.update(category));
-	
 	
 	//delete the category
 		assertEquals("SuccesFully deleted the category from the table",true,categoryDAO.delete(category));
 	
 		//fetching the list
-		assertEquals("SuccesFully fetched the list of  categories from the table",1,categoryDAO.list().size());
+		assertEquals("SuccesFully fetched the list of  categories from the table",3,categoryDAO.list().size());
 	
 	}	
 }

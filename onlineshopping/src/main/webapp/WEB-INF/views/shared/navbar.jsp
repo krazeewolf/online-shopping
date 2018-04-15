@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <span style="font-size:26px; color:white;cursor:pointer" onclick="openNav()">&#9776;  TechAtHome</span>
@@ -6,6 +6,7 @@
     <ul class="nav navbar-nav">
       <li class="active"><a class="nav-link" href="${contextRoot}/home">Home</a></li>
       <li><a href="${contextRoot}/show/all/products" id="listproducts">View Products</a></li>
+       <li><a href="${contextRoot}/manage/products" id="manageproducts">Manage Products</a></li>
 	  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">More <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a class="nav-link" href="${contextRoot}/about" id="about">About Us</a></li>

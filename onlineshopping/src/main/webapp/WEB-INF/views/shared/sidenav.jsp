@@ -1,5 +1,4 @@
-
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <h1>Categories</h1>
   <div class="list-group">
   <c:forEach items="${categories}" var="category">

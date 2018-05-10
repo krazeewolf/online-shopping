@@ -1,11 +1,18 @@
 package net.abhi.onlineshopping.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import net.abhi.backendshopping.dao.CategoryDAO;
@@ -49,9 +56,9 @@ public class PageController {
 		return model;		
 	}
 	
-	/*
-	 * Method to load all the product and based on category
-	 */
+	
+	/* * Method to load all the product and based on category*/
+	 
 	
 	@RequestMapping(value="/show/all/products")
 	public ModelAndView showAllProducts(){
@@ -93,5 +100,46 @@ public class PageController {
 		model.addObject("product", product);
 		model.addObject("userClickShowProduct",true);
 		return model;
+	}
+	@RequestMapping(value="/register")
+	public ModelAndView register(){
+		ModelAndView model=new ModelAndView("page");
+		model.addObject("title","SignUp");
+		return model;		
+	}
+	/*login*/
+	@RequestMapping(value="/login")
+	public ModelAndView login(@RequestParam(name="error",required=false) String error,@RequestParam(name="logout",required=false) String logout){
+		ModelAndView model=new ModelAndView("login");
+		if(error!=null){
+			model.addObject("message","Invalid UserName and Password!");
+		}
+		if(logout!=null){
+			model.addObject("logout","User has successfully logout!");
+		}
+		model.addObject("title","Login");
+		return model;		
+	}
+	@RequestMapping(value="/access-denied")
+	public ModelAndView accessDenied(){
+		ModelAndView model=new ModelAndView("error");
+		model.addObject("title","403 - Access-Denied");
+		model.addObject("errorTitle","Aha! Caught You!");
+		model.addObject("errorDescription","You are not authorized to view this page!");
+		model.addObject("userClickAbout",true);
+		return model;		
+	}
+/*Logout*/
+	@RequestMapping(value="/perform-logout")
+	public String logout(HttpServletRequest request,HttpServletResponse response){
+		
+		//first we are going to fetch the authentication 
+		Authentication auth= SecurityContextHolder.getContext().getAuthentication();
+		if(auth!=null){
+			new SecurityContextLogoutHandler().logout(request, response, auth);
+		}
+		
+		
+		return "redirect:/login?logout";
 	}
 }

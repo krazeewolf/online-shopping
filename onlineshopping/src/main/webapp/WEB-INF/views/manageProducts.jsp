@@ -119,8 +119,9 @@
 			<hr />
 		</div>
 		<div class="col-xs-12">
-			<div class="overflow:auto">
-				<!-- Products table for admin -->
+			<div class="container-fluid">
+			<div class="table-responsive">
+			<!-- Products table for admin -->
 				<table id="adminProductsTable"
 					class="taable table-striped table bordered">
 					<thead>
@@ -146,7 +147,10 @@
 						</tr>
 					</tfoot>
 
-				</table>
+				</table> 
+			</div>
+			</div>
+				
 			</div>
 		</div>
 
@@ -185,8 +189,6 @@
 </sf:form>
 </div>
 </div>
-</div>
-
 </div>
 
 </div>
